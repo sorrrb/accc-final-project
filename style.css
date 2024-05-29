@@ -3,3 +3,106 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --site-bg-color: #33C8CC;
+  --header-bg-color: #F9FAFB65;
+  --footer-bg-color: #03071265;
+  --submit-btn-color: #ED2639;
+}
+
+body {
+  background-color: var(--site-bg-color);
+  height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+body * {
+  font-family: 'Merriweather', serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+header,
+footer {
+  display: flex;
+  align-items: center;
+  padding: .8rem 0;
+}
+
+header {
+  justify-content: space-evenly;
+  background-color: var(--header-bg-color);
+}
+
+form {
+  position: relative;
+  width: 30rem;
+}
+
+form input,
+form button {
+  border: 0;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+}
+
+form input[type="search"] {
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  border-radius: 0.75rem;
+  transition: all 0.25s cubic-bezier(0, 0, 0.5, 1.5);
+  transition-property: width, border-radius;
+}
+
+form input:not(:placeholder-shown) {
+  width: calc(100% - 5rem);
+  border-radius: 0.75rem 0 0 0.75rem;
+}
+
+form input:not(:placeholder-shown)+button {
+  display: block;
+}
+
+form button {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  background-color: var(--submit-btn-color);
+  color: black;
+  font-weight: bold;
+}
+
+form label {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+
+
+main {
+  background-image: url(./assets/pokeball-blur.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+footer {
+  justify-content: center;
+  background-color: var(--footer-bg-color);
+}

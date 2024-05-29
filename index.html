@@ -6,10 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css">
   <script src="./script.js" defer></script>
-  <title>PokeDex</title>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>PokéDex</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+  </style>
 </head>
 
 <body>
+
+  <header>
+
+    <h1>PokéDex</h1>
+
+    <form role="search" onsubmit="event.preventDefault()">
+      <label for="search">Search for Pokémon!</label>
+      <input type="search" name="search" id="searchbar" placeholder="Search..." autofocus>
+      <button type="submit">Go</button>
+    </form>
+
+  </header>
+
+  <main>
+
+    <div id="display"></div>
+
+  </main>
+
+  <footer>
+
+    <h3>Made with love by sorrrb</h6>
+
+  </footer>
 
 </body>
 
