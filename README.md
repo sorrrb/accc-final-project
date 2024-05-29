@@ -1,0 +1,1 @@
+https://codepen.io/liamj/pen/vYYLGZj (NO JS searchbar with validation/display logic using :placeholder-shown)

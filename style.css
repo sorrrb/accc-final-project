@@ -5,6 +5,9 @@
 }
 
 :root {
+  --dark-font-color: #212427;
+  --opaque-white: #FFFFFFC7;
+  --opaque-black: #212427C7;
   --site-bg-color: #33C8CC;
   --header-bg-color: #F9FAFB65;
   --footer-bg-color: #03071265;
@@ -18,8 +21,11 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
+
+
 body * {
   font-family: 'Merriweather', serif;
+  color: var(--dark-font-color);
 }
 
 button {
@@ -27,61 +33,86 @@ button {
 }
 
 
+
 header,
 footer {
   display: flex;
   align-items: center;
-  padding: .8rem 0;
+  padding: 0.25rem 0;
 }
 
 header {
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
   background-color: var(--header-bg-color);
+  border-bottom: 1px solid var(--opaque-black);
+  padding-bottom: 0.8rem;
 }
 
-form {
+footer {
+  justify-content: center;
+  background-color: var(--footer-bg-color);
+  border-top: 1px solid var(--opaque-black);
+  font-weight: normal;
+}
+
+
+
+#logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#logo img {
+  height: 40px;
+  width: 40px;
+}
+
+header form {
   position: relative;
-  width: 30rem;
+  width: 15rem;
 }
 
-form input,
-form button {
-  border: 0;
-  font-size: 1.25rem;
-  padding: 0.5rem;
+header form input,
+header form button {
+  border: 1px solid var(--opaque-white);
+  font-size: 0.83rem;
+  padding: 0.33rem;
 }
 
-form input[type="search"] {
+header form input[type="search"] {
   width: 100%;
   z-index: 1;
   position: relative;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   transition: all 0.25s cubic-bezier(0, 0, 0.5, 1.5);
   transition-property: width, border-radius;
 }
 
-form input:not(:placeholder-shown) {
-  width: calc(100% - 5rem);
-  border-radius: 0.75rem 0 0 0.75rem;
+header form input:not(:placeholder-shown) {
+  width: calc(100% - 3.33rem);
+  border-radius: 0.5rem 0 0 0.5rem;
 }
 
-form input:not(:placeholder-shown)+button {
+header form input:not(:placeholder-shown)+button {
   display: block;
 }
 
-form button {
+header form button {
   display: none;
   position: absolute;
   top: 0;
   right: 0;
-  width: 5rem;
-  border-radius: 0 0.75rem 0.75rem 0;
+  width: 3.3rem;
+  border-radius: 0 0.5rem 0.5rem 0;
   background-color: var(--submit-btn-color);
   color: black;
   font-weight: bold;
 }
 
-form label {
+header form label {
   position: absolute;
   height: 1px;
   width: 1px;
@@ -102,7 +133,39 @@ main {
 
 
 
-footer {
-  justify-content: center;
-  background-color: var(--footer-bg-color);
+footer h3 {
+  font-weight: normal;
+  font-style: italic;
+}
+
+footer a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+@media only screen and (min-width: 320px) {
+  form {
+    width: 20rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  header {
+    justify-content: space-evenly;
+    flex-direction: row;
+    padding-bottom: 0.25rem;
+  }
+
+  form {
+    width: 30rem;
+  }
 }
