@@ -13,7 +13,6 @@
   const pokeSpriteFrontShiny = activePokeInformation.querySelector('[data-front-shiny]');
   const pokeSpriteBackShiny = activePokeInformation.querySelector('[data-back-shiny]');
   const pokeName = activePokeInformation.querySelector('#pokemonName');
-  const pokeTyping = activePokeInformation.querySelector('#pokemonType');
 
   const GRID_DIMENSIONS = 5;
   const GRID_TOTAL = GRID_DIMENSIONS ** 2;
@@ -125,7 +124,7 @@
       })
       return response;
     } catch (error) {
-      console.error(error);
+      return;
     }
   }
 
@@ -138,7 +137,6 @@
       dataObj = response;
       return response;
     } catch (error) {
-      console.error(error);
       siteDefaultMessage.textContent = `[${error.response.status} - ${error.response.data}]`;
       siteContextMessage.style.display = 'block';
       siteContextMessage.textContent = `< Please try a different search query - displaying random results>`;
