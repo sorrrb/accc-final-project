@@ -11,6 +11,7 @@
   <title>PokéDex</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap');
   </style>
 </head>
 
@@ -26,7 +27,7 @@
 
     </div>
 
-    <form role="search" onsubmit="event.preventDefault()">
+    <form role="search" id="searchWrapper">
       <label for="search">Search for Pokémon!</label>
       <input type="search" name="search" id="searchbar" placeholder="Search..." autofocus>
       <button type="submit">Go</button>
@@ -36,7 +37,29 @@
 
   <main>
 
-    <div id="display"></div>
+    <div id="display">
+
+      <div id="sidePanel">
+
+        <h1 id="siteEntryMsg">WELCOME TO THE POKEDEX API PROJECT!</h1>
+        <h2 id="siteEntryContext">N/A</h2>
+
+        <div id="pokeContext">
+
+          <img src="https://pokeapi.co/api/v2/pokemon-species/1/" alt="" class="src" data-front-default>
+          <img src="https://pokeapi.co/api/v2/pokemon-species/1/" alt="" class="src" data-back-default>
+          <img src="https://pokeapi.co/api/v2/pokemon-species/1/" alt="" class="src" data-front-shiny>
+          <img src="https://pokeapi.co/api/v2/pokemon-species/1/" alt="" class="src" data-back-shiny>
+          <h2 id="pokemonName"></h2>
+        </div>
+
+      </div>
+
+      <div id="mainPanel">
+
+      </div>
+
+    </div>
 
   </main>
 

@@ -11,7 +11,8 @@
   --site-bg-color: #33C8CC;
   --header-bg-color: #F9FAFB65;
   --footer-bg-color: #03071265;
-  --submit-btn-color: #ED2639;
+  --searchbar-bg-color: #EEF2F3C7;
+  --submit-btn-color: #CA989D;
 }
 
 body {
@@ -78,11 +79,13 @@ header form {
 header form input,
 header form button {
   border: 1px solid var(--opaque-white);
-  font-size: 0.83rem;
+  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
   padding: 0.33rem;
 }
 
 header form input[type="search"] {
+  background-color: #EEF2F3;
   width: 100%;
   z-index: 1;
   position: relative;
@@ -91,9 +94,15 @@ header form input[type="search"] {
   transition-property: width, border-radius;
 }
 
+header form input:focus-visible {
+  outline: none;
+  border: 1px solid #F0F0F0;
+}
+
 header form input:not(:placeholder-shown) {
   width: calc(100% - 3.33rem);
   border-radius: 0.5rem 0 0 0.5rem;
+  outline: none;
 }
 
 header form input:not(:placeholder-shown)+button {
@@ -108,7 +117,7 @@ header form button {
   width: 3.3rem;
   border-radius: 0 0.5rem 0.5rem 0;
   background-color: var(--submit-btn-color);
-  color: black;
+  color: var(--opaque-white);
   font-weight: bold;
 }
 
@@ -129,6 +138,61 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
+}
+
+#display {
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  width: 100%;
+  min-height: 800px;
+  border: 1px solid var(--opaque-black);
+  border-radius: 0.33rem;
+  background-color: var(--opaque-black);
+}
+
+#mainPanel {
+  display: grid;
+}
+
+#mainPanel .gif-cell {
+  height: 100%;
+  filter: blur(4px) grayscale(100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#mainPanel .gif-cell:nth-of-type(even) {
+  filter: grayscale(100%);
+}
+
+#mainPanel .gif-cell:hover {
+  cursor: pointer;
+  filter: none;
+}
+
+#siteEntryMsg,
+#siteEntryContext {
+  text-align: center;
+}
+
+#siteEntryContext {
+  display: none;
+  font-weight: bold;
+}
+
+#sidePanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF30;
+  border-bottom: 1px solid var(--opaque-white);
+}
+
+#pokeContext {
+  display: none;
+  text-align: center;
 }
 
 
@@ -168,10 +232,24 @@ footer a:hover {
   header form {
     width: 25rem;
   }
+
+  #display {
+    margin: 1rem;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
   header form {
     width: 30rem;
+  }
+
+  main {
+    padding: 1rem 5rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  main {
+    padding: 2.5rem 10rem;
   }
 }
